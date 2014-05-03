@@ -329,11 +329,11 @@ void Panel_draw(Panel* this, bool focus) {
 bool Panel_onKey(Panel* this, int key) {
    assert (this != NULL);
    switch (key) {
-   case KEY_DOWN:
+   case 'j':
       if (this->selected + 1 < Vector_size(this->items))
          this->selected++;
       return true;
-   case KEY_UP:
+   case 'k':
       if (this->selected > 0)
          this->selected--;
       return true;
@@ -359,13 +359,13 @@ bool Panel_onKey(Panel* this, int key) {
       }
       return true;
    #endif
-   case KEY_LEFT:
+   case 'h':
       if (this->scrollH > 0) {
          this->scrollH -= 5;
          this->needsRedraw = true;
       }
       return true;
-   case KEY_RIGHT:
+   case 'l':
       this->scrollH += 5;
       this->needsRedraw = true;
       return true;
